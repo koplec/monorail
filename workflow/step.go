@@ -49,6 +49,7 @@ func Then[I, Mid, O any](chain Chain[I, Mid], next Step[Mid, O]) Chain[I, O] {
 				return result.Err[O](err)
 			}
 
+			// 次を呼ぶ
 			return next(ctx, mid.Unwrap())
 		},
 	}
